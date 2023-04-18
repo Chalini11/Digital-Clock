@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>digitalclock</title>
+</head>
+<body class="color" align="center">
+    <div id="myClock" class="clock" ></div>
+</body>
+<script>
+    
+    function showTime()
+    {
+        var date = new Date();
+        var h = date.getHours(); 
+        var m = date.getMinutes(); 
+        var s = date.getSeconds(); 
+        if(parseInt(s)<10)
+           s='0'+s;
+        if(parseInt(m)<10)
+           m='0'+m;
+    
+    var time = h + ":" + m + ":" + s + " ";
+    
+    document.getElementById("myClock").textContent = time;
+    document.getElementsByClassName("color")[0].style.backgroundColor=document.body.style.backgroundColor = 'rgb(' + h + ',' + m + ',' + s + ')';
+    setTimeout(showTime,1000);
+
+    
+    }
+    
+    showTime();
+</script>
+</html>
